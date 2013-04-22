@@ -28,6 +28,7 @@ gem 'jbuilder', '~> 1.0.1'
 group :test do
   gem "rspec-rails", "~> 2.0"
   gem "turnip"
+  gem "capybara"
 end
 
 # To use ActiveModel has_secure_password
