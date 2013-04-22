@@ -29,6 +29,7 @@ group :test do
   gem "rspec-rails", "~> 2.0"
   gem "turnip"
   gem "capybara"
+  gem "database_cleaner", git: "git://github.com/bmabey/database_cleaner.git"
 end
 
 # To use ActiveModel has_secure_password
