@@ -4,4 +4,4 @@ Feature: Managing artworks
     When I vist the new artwork path
     And I fill in the form
     And I submit the form
-    Then I should have 1 artwork registerd
+    Then I should have 1 artwork registered
