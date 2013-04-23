@@ -13,7 +13,7 @@ module ArtworkSteps
   end
 
   step "I visit the edit artwork path" do
-    visit edit_artwork_path(artwork)
+    visit edit_artwork_path(@artwork)
   end
   
   step "I fill in the artwork form with title :title" do |title|

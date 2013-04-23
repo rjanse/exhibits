@@ -13,7 +13,7 @@ module ExhibitionSteps
   end
 
   step "I visit the edit exhibition path" do
-    visit edit_exhibition_path(exhibition)
+    visit edit_exhibition_path(@exhibition)
   end 
 
   step "I fill in the exhibition form with gallery :gallery" do |gallery|
