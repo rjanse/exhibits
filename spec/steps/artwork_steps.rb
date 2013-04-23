@@ -1,6 +1,6 @@
 module ArtworkSteps
   
-  def artwork
+  def create_artwork
     @artwork ||= Artwork.create(title: "Flower")
   end
   
@@ -16,23 +16,23 @@ module ArtworkSteps
     visit edit_artwork_path(artwork)
   end
   
-  step "I fill in the form with :title" do |title|
+  step "I fill in the artwork form with title :title" do |title|
     fill_in('Title', with: title)
   end
   
-  step "I submit the new form" do
+  step "I submit the new artwork form" do
     click_button('Create Artwork')
   end
 
-  step "I submit the edit form" do
+  step "I submit the edit artwork form" do
     click_button('Update Artwork')
   end
 
   step "I created an artwork with the title Flower" do
-    artwork
+    create_artwork
   end
 
-  step "I should have a updated artwork with the title Power" do
+  step "I should have an updated artwork with the title Power" do
     Artwork.exists?(title: "Power").should be_true
   end
 
