@@ -52,12 +52,17 @@ module ExhibitionSteps
     create(:past_exhibition)
   end
 
-  step "I click the future exhibition filter" do
-    click_link "Future"
+  step "I click the :filter exhibition filter" do |filter|
+    click_link filter.capitalize
   end
 
   step "I only should see future exhibitions" do
     page.should have_content("White")
     page.should_not have_content("Black")
+  end
+
+  step "I only should see past exhibitions" do
+    page.should have_content("Black")
+    page.should_not have_content("White")
   end
 end

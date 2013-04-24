@@ -12,6 +12,11 @@ class ExhibitionsController < ApplicationController
     render :index
   end
 
+  def past
+    @exhibitions = Exhibition.past
+    render :index
+  end
+
   # GET /exhibitions/1
   # GET /exhibitions/1.json
   def show

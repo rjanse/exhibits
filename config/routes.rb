@@ -3,6 +3,7 @@ Exhibits::Application.routes.draw do
 
   resources :exhibitions do
     get 'future', on: :collection
+    get 'past', on: :collection
   end
 
   resources :artworks
