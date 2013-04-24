@@ -1,0 +1,33 @@
+<h1>Listing exhibits</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Artwork</th>
+      <th>Exhibition</th>
+      <th>Sold</th>
+      <th>Price</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @exhibits.each do |exhibit| %>
+    <tr>
+      <td><%= exhibit.artwork %></td>
+      <td><%= exhibit.exhibition %></td>
+      <td><%= exhibit.sold %></td>
+      <td><%= exhibit.price %></td>
+      <td><%= link_to 'Show', exhibit %></td>
+      <td><%= link_to 'Edit', edit_exhibit_path(exhibit) %></td>
+      <td><%= link_to 'Destroy', exhibit, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br />
+
+<%= link_to 'New Exhibit', new_exhibit_path %>

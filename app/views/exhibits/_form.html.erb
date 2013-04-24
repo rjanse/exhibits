@@ -1,0 +1,36 @@
+<%= form_for(@exhibit) do |f| %>
+  <% if @exhibit.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@exhibit.errors.count, "error") %> prohibited this exhibit from being saved:</h2>
+
+      <ul>
+      <% @exhibit.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :artwork %><br />
+    <%= f.collection_select(:artwork_id, Artwork.all, :id, :title) %>
+  </div>
+  <div class="field">
+    <%= f.label :exhibition %><br />
+    <%= f.collection_select(:exhibition_id, Exhibition.all, :id, :gallery) %>
+  </div>
+  <% if action_name == "edit" %>
+  <div class="field">
+    <%= f.label :sold %><br />
+    <%= f.check_box :sold %>
+  </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :price %><br />
+    <%= f.text_field :price %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

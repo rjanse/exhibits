@@ -28,7 +28,7 @@ module ArtworkSteps
     click_button('Update Artwork')
   end
 
-  step "I created an artwork with the title Flower" do
+  step "I created an artwork" do
     create_artwork
   end
 

@@ -1,4 +1,6 @@
 Exhibits::Application.routes.draw do
+  resources :exhibits
+
   resources :exhibitions
 
   resources :artworks

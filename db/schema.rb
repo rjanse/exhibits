@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130423185202) do
+ActiveRecord::Schema.define(version: 20130424112051) do
 
   create_table "artworks", force: true do |t|
     t.string   "title"
@@ -26,5 +26,17 @@ ActiveRecord::Schema.define(version: 20130423185202) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "exhibits", force: true do |t|
+    t.integer  "artwork_id"
+    t.integer  "exhibition_id"
+    t.boolean  "sold",          default: false
+    t.float    "price"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "exhibits", ["artwork_id"], name: "index_exhibits_on_artwork_id"
+  add_index "exhibits", ["exhibition_id"], name: "index_exhibits_on_exhibition_id"
 
 end
