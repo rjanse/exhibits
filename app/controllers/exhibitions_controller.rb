@@ -7,6 +7,11 @@ class ExhibitionsController < ApplicationController
     @exhibitions = Exhibition.all
   end
 
+  def future
+    @exhibitions = Exhibition.future
+    render :index
+  end
+
   # GET /exhibitions/1
   # GET /exhibitions/1.json
   def show

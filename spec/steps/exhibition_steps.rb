@@ -1,7 +1,7 @@
 module ExhibitionSteps
 
   def create_exhibition
-    @exhibition ||= Exhibition.create(gallery: "Foo", start_date: 2.weeks.from_now, end_date: 4.weeks.from_now)
+    @exhibition ||= create(:future_exhibition)
   end
 
   step "I have :amount exhibition(s)" do |amount|
@@ -10,6 +10,10 @@ module ExhibitionSteps
 
   step "I visit the new exhibition path" do
     visit new_exhibition_path
+  end
+
+  step "I visit the exhibitions path" do
+    visit exhibitions_path
   end
 
   step "I visit the edit exhibition path" do
@@ -41,5 +45,19 @@ module ExhibitionSteps
 
   step "I should have an updated exhibition with gallery Bar" do
     Exhibition.exists?(gallery: "Bar").should be_true
+  end
+
+  step "I created exhibitions that are in the past and future" do
+    create(:future_exhibition)
+    create(:past_exhibition)
+  end
+
+  step "I click the future exhibition filter" do
+    click_link "Future"
+  end
+
+  step "I only should see future exhibitions" do
+    page.should have_content("White")
+    page.should_not have_content("Black")
   end
 end

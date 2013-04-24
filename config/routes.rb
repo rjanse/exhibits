@@ -1,7 +1,9 @@
 Exhibits::Application.routes.draw do
   resources :exhibits
 
-  resources :exhibitions
+  resources :exhibitions do
+    get 'future', on: :collection
+  end
 
   resources :artworks
 
