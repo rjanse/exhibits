@@ -15,13 +15,19 @@ Feature: Managing exhibitions
     Then    I should have an updated exhibition with gallery Bar
 
   Scenario: filter future exhibitions
-    Given   I created exhibitions that are in the past and future
+    Given   I created exhibitions that are in the past, current and future
     And     I visit the exhibitions path
-    When    I click the future exhibition filter
+    When    I click the future exhibitions filter
     Then    I only should see future exhibitions
 
   Scenario: filter past exhibitions
-    Given   I created exhibitions that are in the past and future
+    Given   I created exhibitions that are in the past, current and future
     And     I visit the exhibitions path
-    When    I click the past exhibition filter
-    Then    I only should see past exhibitions    
+    When    I click the past exhibitions filter
+    Then    I only should see past exhibitions   
+    
+  Scenario: filter current exhibitions  
+    Given   I created exhibitions that are in the past, current and future
+    When    I visit the exhibitions path
+    And     I click the current exhibitions filter
+    Then    I only should see current exhibitions

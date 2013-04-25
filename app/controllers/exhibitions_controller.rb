@@ -4,15 +4,24 @@ class ExhibitionsController < ApplicationController
   # GET /exhibitions
   # GET /exhibitions.json
   def index
+    @title = "All exhibitions"
     @exhibitions = Exhibition.all
   end
 
   def future
+    @title = "Future exhibitions"
     @exhibitions = Exhibition.future
     render :index
   end
 
+  def current
+    @title = "Current exhibitions"
+    @exhibitions = Exhibition.current
+    render :index
+  end
+
   def past
+    @title = "Past exhibitions"
     @exhibitions = Exhibition.past
     render :index
   end

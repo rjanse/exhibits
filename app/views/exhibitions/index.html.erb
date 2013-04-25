@@ -1,9 +1,10 @@
-<h1>Exhibitions</h1>
+<h1><%= @title %></h1>
 
 <ul>
   <li><%= link_to "All", exhibitions_path %></li> 
   <li><%= link_to "Future", future_exhibitions_path %></li>
-  <li><%= link_to "Past", past_exhibitions_path %></li>  
+  <li><%= link_to "Current", current_exhibitions_path %></li>  
+  <li><%= link_to "Past", past_exhibitions_path %></li>
 </ul>
 
 <table>

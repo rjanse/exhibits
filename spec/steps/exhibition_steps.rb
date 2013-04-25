@@ -47,22 +47,31 @@ module ExhibitionSteps
     Exhibition.exists?(gallery: "Bar").should be_true
   end
 
-  step "I created exhibitions that are in the past and future" do
+  step "I created exhibitions that are in the past, current and future" do
     create(:future_exhibition)
+    create(:current_exhibition)
     create(:past_exhibition)
   end
 
-  step "I click the :filter exhibition filter" do |filter|
+  step "I click the :filter exhibitions filter" do |filter|
     click_link filter.capitalize
   end
 
   step "I only should see future exhibitions" do
     page.should have_content("White")
     page.should_not have_content("Black")
+    page.should_not have_content("Grey")
   end
 
   step "I only should see past exhibitions" do
     page.should have_content("Black")
     page.should_not have_content("White")
+    page.should_not have_content("Grey")
+  end
+
+  step "I only should see current exhibitions" do
+    page.should have_content("Grey")
+    page.should_not have_content("White")
+    page.should_not have_content("Black")
   end
 end

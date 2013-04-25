@@ -3,8 +3,8 @@ ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'rspec/autorun'
-require 'turnip/capybara'
-require 'factory_girl'
+# require 'turnip/capybara'
+# require 'factory_girl'
 
 RSpec.configure do |config|
   config.use_transactional_fixtures = false
