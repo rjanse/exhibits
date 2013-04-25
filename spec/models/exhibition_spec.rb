@@ -13,8 +13,9 @@ describe Exhibition do
         Exhibition.send(time).should include(eval("#{time}_exhibition"))
       end
 
-      it "should not include #{times.reject{|t| t == time }.join(" or ")} exhibitions" do
-        times.reject{|t| t == time }.each do |rejected_time|
+      rejected_times = times.reject{|t| t == time}
+      it "should not include #{rejected_times.join(" or ")} exhibitions" do
+        rejected_times.each do |rejected_time|
           Exhibition.send(time).should_not include(eval("#{rejected_time}_exhibition"))
         end
       end
