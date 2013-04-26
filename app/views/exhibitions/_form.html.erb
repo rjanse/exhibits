@@ -23,6 +23,12 @@
     <%= f.label :end_date, "End" %><br />
     <%= f.date_select :end_date %>
   </div>
+  <div class="field">
+    <% Artwork.all.each do |artwork| %>
+      <%= check_box_tag "exhibition[artwork_ids][]", artwork.id %>
+      <%= artwork.title %><br/>
+    <% end %>
+  </div>  
   <div class="actions">
     <%= f.submit %>
   </div>

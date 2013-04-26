@@ -15,6 +15,15 @@
   <%= @exhibition.end_date %>
 </p>
 
+<p>
+  <strong>Artworks:</strong>
+  <ul>
+    <% @exhibition.artworks.each do |artwork| %>
+      <li><%= artwork.title %></li>
+    <% end %>
+  </ul>
+</p>
+
 
 <%= link_to 'Edit', edit_exhibition_path(@exhibition) %> |
 <%= link_to 'Back', exhibitions_path %>
