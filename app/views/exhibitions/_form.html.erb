@@ -16,19 +16,21 @@
     <%= f.text_area :gallery %>
   </div>
   <div class="field">
-    <%= f.label :start_date, "Start" %><br />
+    <%= f.label :start_date %><br />
     <%= f.date_select :start_date %>
   </div>
   <div class="field">
-    <%= f.label :end_date, "End" %><br />
+    <%= f.label :end_date %><br />
     <%= f.date_select :end_date %>
   </div>
-  <div class="field">
-    <% Artwork.all.each do |artwork| %>
-      <%= check_box_tag "exhibition[artwork_ids][]", artwork.id %>
-      <%= artwork.title %><br/>
+    <%= field_set_tag 'Select your artworks for the exhibition' do %>
+      <%= hidden_field_tag "exhibition[artwork_ids][]", nil %>
+      <% Artwork.all.each do |artwork| %>
+        <%= check_box_tag "exhibition[artwork_ids][]", artwork.id, @exhibition.artwork_ids.include?(artwork.id), id: dom_id(artwork) %>
+        <%= label_tag dom_id(artwork), artwork.title %><br/>
+      <% end %>
     <% end %>
-  </div>  
+  </fieldset>  
   <div class="actions">
     <%= f.submit %>
   </div>

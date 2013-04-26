@@ -88,6 +88,6 @@ class ExhibitionsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def exhibition_params
       params.require(:exhibition).permit! #TODO! permit nested attributes and (:gallery, :start_date, :end_date)
-      # params.require(:exhibition).permit(:gallery, :start_date, :end_date, :artwork_ids)
+      # params.require(:exhibition).permit(:gallery, :start_date, :end_date, artworks_attributes: :title)
     end
 end
